@@ -129,7 +129,8 @@ class AStar:
 
                 # Create the f, g, and h values
                 child.g = current_node.g + 1
-                child.h = abs(child.position[0] - end_node.position[0]) + abs(child.position[1] - end_node.position[1])
+                child.h = abs(child.position[0] - end_node.position[0])
+                + abs(child.position[1] - end_node.position[1])
                 child.f = child.g + child.h
 
                 # Child is already in the open list
@@ -157,14 +158,18 @@ def main():
     maze = [[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
             [0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
             [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
             [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
             [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
+    from maze_generator import make_maze, printMaze
+    
+    maze = make_maze(25, 50)
+    
     start = (0, 0)
     end = (len(maze) - 1, len(maze[0]) - 1)
 
@@ -173,6 +178,7 @@ def main():
 
     if path is not None:
         print(path)
+        printMaze(maze, path)
 
 
 if __name__ == '__main__':

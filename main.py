@@ -48,7 +48,8 @@ font = pygame.font.Font(None, 36)
 
 # hints
 hint = ("(D) :: Draw walls \n (E) : Erase walls \n (Q) :: Change diagonal movement \n"
-        "(C) :: Clear maze \n (R) :: Run A* Path Finder \n\n (Space) :: Close hint")
+        "(C) :: Clear maze \n (R) :: Run A* Path Finder \n (F) :: Start Point \n (S) :: End Point"
+        +"\n\n (Space) :: Close hint")
 
 # Main loop
 drawing = False
